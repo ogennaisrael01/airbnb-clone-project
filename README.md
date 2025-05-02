@@ -58,8 +58,8 @@ Authentication: JWT (SimpleJWT or djangorestframework-simplejwt):  Securely hand
 
 # Database Design
 🔹 1. User
-Represents: Guests and Hosts
-Relationships:
+> Represents: Guests and Hosts
+> Relationships:
 * One-to-many with Listings (a host can create many listings)
 
 * One-to-many with Bookings (a user can book many listings)
