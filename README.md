@@ -1,4 +1,4 @@
-# Airbnd clone project - the console
+# Airbnd clone project
 
 # 🏡 Airbnb Clone – Project Overview
 📌 Project Description
@@ -9,12 +9,14 @@ This project is a backend clone of Airbnb, designed to simulate the core functio
 
 * Database: PostgreSQL / SQLite
 
+* Django REST Framework (DRF)
+
 * Authentication: JWT (SimpleJWT or djangorestframework-simplejwt)
 
 * Deployment: Docker + Gunicorn + Nginx (optional)
 
 
-# Team Roles and Responsibilities
+# Team Roles
 🧠 1. Project Manager / Team Lead
 * Coordinates team meetings and progress tracking
 
@@ -42,3 +44,24 @@ This project is a backend clone of Airbnb, designed to simulate the core functio
 * Identifies bugs and creates test cases
 
 * Assists with CI/CD setup if applicable
+
+# Technology Stack
+* Django / Django REST Framework: The core backend framework used to build the web application logic.
+
+* PostgreSQL / SQLite:  Builds RESTful APIs that allow frontend or mobile apps to interact with the backend.
+
+Authentication: JWT (SimpleJWT or djangorestframework-simplejwt):  Securely handles user authentication without storing sessions on the server.
+
+*  Django REST Framework (DRF):  Builds RESTful APIs that allow frontend or mobile apps to interact with the backend.
+
+* Docker: Packages the app with all its dependencies to run reliably on any system.
+
+# Database Design
+🔹 1. User
+Represents: Guests and Hosts
+Relationships:
+* One-to-many with Listings (a host can create many listings)
+
+* One-to-many with Bookings (a user can book many listings)
+
+* One-to-many with Reviews (a user can write many reviews)
