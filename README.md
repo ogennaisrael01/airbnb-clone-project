@@ -105,7 +105,7 @@ Authentication: JWT (SimpleJWT or djangorestframework-simplejwt):  Securely hand
 
 # API Security
 🔐 Security Measures & Their Importance
-1.JWT authentications: Use JWT tokens for stateless authentication.
+1. JWT authentications: Use JWT tokens for stateless authentication.
 * Why: Secures API access; token expiry limits exposure if stolen. Refresh tokens allow controlled renewal.
 
 2.  Rate Limiting:  Limit API request rate per user or IP
