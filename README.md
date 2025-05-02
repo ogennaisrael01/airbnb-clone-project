@@ -1,6 +1,6 @@
 # Airbnd clone project
 
-# 🏡 Airbnb Clone – Project Overview
+# Project Overview
 📌 Project Description
 This project is a backend clone of Airbnb, designed to simulate the core functionalities of a property rental platform. It includes user authentication, property listings, bookings, and reviews. 
 
@@ -61,8 +61,90 @@ Authentication: JWT (SimpleJWT or djangorestframework-simplejwt):  Securely hand
 > Represents: Guests and Hosts
 
 <Relationships:
+
 * One-to-many with Listings (a host can create many listings)
 
 * One-to-many with Bookings (a user can book many listings)
 
 * One-to-many with Reviews (a user can write many reviews)
+
+🔹 2. Listing
+> Represents: Properties available for rent
+
+<Relationshships 
+
+* Many-to-one → User (a user can have many listings)
+
+* One-to-many with Bookings(one listing can have many bookings)
+
+* One-to-many with Reviews(one listing can have many reviews )
+
+🔹 3. Booking
+> Represents: A user booking a listing
+<Relationships:
+
+* Many-to-one → User(a user can have many bookings)
+
+* Many-to-one → Listing(can have many bookings in one listings)
+
+🔹 4. Review
+> Represents: Feedback left by a guest
+<Relationships
+
+* Many-to-one → User(a user can have many reviews)
+
+* Many-to-one → Listing(a listing can have many reviews)
+
+🔹 5. Payment
+> Represents: A user payment for a booking
+<Relationships 
+
+* Each Booking has one corresponding Payment
+
+* One User can have many Payments
+
+# API Security
+🔐 Security Measures & Their Importance
+1.JWT authentications: Use JWT tokens for stateless authentication.
+* Why: Secures API access; token expiry limits exposure if stolen. Refresh tokens allow controlled renewal.
+
+2.  Rate Limiting:  Limit API request rate per user or IP
+* why: Blocks brute-force attacks, abuse, and API spamming.
+
+3. Database Security: 
+* why: Protects against direct DB access and accidental exposure of sensitive data.
+
+4. Logging and Monitoring:
+* Why: Detect suspicious behavior, errors, and potential breaches.
+5.  Password Hashing
+* Why: Prevents plain-text password storage and protects user credentials even if the DB is breached.
+
+# Feature Breakdown
+1. User Authentication & Authorization
+Sign up, login, logout, and role-based access (guest or host).
+
+2. Property Listings Management
+Hosts can create, update, and delete property listings with descriptions, photos, and pricing.
+
+3.  Booking System
+Guests can check availability, select dates, and book listings
+
+4. Payment Integration
+Users can pay for bookings using a payment gateway
+
+# CI/CD Pipeline
+🔁 What Is CI/CD?
+> CI/CD is the process of automatically testing, integrating, and deploying code changes to ensure faster, safer, and more reliable software delivery.
+
+
+✅ Why CI/CD Is Important for Your Airbnb Clone Project
+1. faster development
+2. fewer bugs in production
+3. Team collaboration
+4. scalability
+
+🧰 CI/CD Tools
+1. GitHub Actions
+2. CircleCI
+3. GitLab CI/CD
+4. Jenkins
