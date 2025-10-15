@@ -167,18 +167,23 @@ CI/CD Tools
 
 project setup
 1. Clone the repository:
+```bash
 git clone <https://github.com/ogennaisrael01/airbnb-clone-project>
 cd airbnb-clone-project
+```
 
 2. Create and activate a virtual environment (optional but recommended):
+```bash
 python -m venv venv
 source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-
+```
 3. Install dependencies:
+```bash
 pip install -r requirements.txt
-
+```
 4. Set up environment variables:
 Create a .env file in the project root and add necessary environment variables (e.g., SECRET_KEY, DATABASE_URL).
 
 5. Apply database migrations:
+```bash
 python manage.py migrate
