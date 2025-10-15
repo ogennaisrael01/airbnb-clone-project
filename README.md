@@ -1,7 +1,7 @@
 # Airbnd clone project
 
 # Project Overview
-📌 Project Description
+Project Description
 This project is a backend clone of Airbnb, designed to simulate the core functionalities of a property rental platform. It includes user authentication, property listings, bookings, and reviews. 
 
 # Team stack 
@@ -13,30 +13,44 @@ This project is a backend clone of Airbnb, designed to simulate the core functio
 
 * Authentication: JWT (SimpleJWT or djangorestframework-simplejwt)
 
-* Deployment: Docker + Gunicorn + Nginx (optional)
+* Deployment: Docker + Uvicorn 
+
+* Celery: For background task processing
+
+* Redis: For caching and real-time updates
+
+* Testing: Pytest, Postman
+
+* Version Control: Git + GitHub
+
+* Documentation: Swagger / Postman
+
+* API Versioning: Implement versioning for the API endpoints
+
+* CI/CD: GitHub Actions
 
 
 # Team Roles
-🧠 1. Project Manager / Team Lead
+1. Project Manager / Team Lead
 * Coordinates team meetings and progress tracking
 
 * Ensures milestones and deliverables are met
 
 * Reviews pull requests and enforces coding standards
 
-🏗️ 2. Backend Developer (Core APIs)
+2. Backend Developer (Core APIs)
 * Responsible for implementing API endpoints, database schemas and business logic.
 * Implements serializers, views, and model logic (Django/DRF)
 * Writes unit and integration tests for APIs
 
-📦 3. DevOps / Deployment Lead
+3. DevOps / Deployment Lead
 * Sets up Docker and environment configs
 
 * Manages deployment to cloud platforms (Heroku, Render, etc.)
 
 * Ensures logging, backups, and performance monitoring
 
-✅ 4. QA & Testing Engineer
+4. QA & Testing Engineer
 * Writes and runs unit, integration, and API tests
 
 * Uses Postman or Swagger for endpoint testing
@@ -44,6 +58,7 @@ This project is a backend clone of Airbnb, designed to simulate the core functio
 * Identifies bugs and creates test cases
 
 * Assists with CI/CD setup if applicable
+
 
 # Technology Stack
 * Django / Django REST Framework: The core backend framework used to build the web application logic.
@@ -57,7 +72,7 @@ Authentication: JWT (SimpleJWT or djangorestframework-simplejwt):  Securely hand
 * Docker: Packages the app with all its dependencies to run reliably on any system.
 
 # Database Design
-🔹 1. User
+1. User
 > Represents: Guests and Hosts
 
 <Relationships:
@@ -68,7 +83,7 @@ Authentication: JWT (SimpleJWT or djangorestframework-simplejwt):  Securely hand
 
 * One-to-many with Reviews (a user can write many reviews)
 
-🔹 2. Listing
+2. Listing
 > Represents: Properties available for rent
 
 <Relationshships 
@@ -79,7 +94,7 @@ Authentication: JWT (SimpleJWT or djangorestframework-simplejwt):  Securely hand
 
 * One-to-many with Reviews(one listing can have many reviews )
 
-🔹 3. Booking
+3. Booking
 > Represents: A user booking a listing
 <Relationships:
 
@@ -87,7 +102,7 @@ Authentication: JWT (SimpleJWT or djangorestframework-simplejwt):  Securely hand
 
 * Many-to-one → Listing(can have many bookings in one listings)
 
-🔹 4. Review
+4. Review
 > Represents: Feedback left by a guest
 <Relationships
 
@@ -95,7 +110,7 @@ Authentication: JWT (SimpleJWT or djangorestframework-simplejwt):  Securely hand
 
 * Many-to-one → Listing(a listing can have many reviews)
 
-🔹 5. Payment
+5. Payment
 > Represents: A user payment for a booking
 <Relationships 
 
@@ -104,7 +119,7 @@ Authentication: JWT (SimpleJWT or djangorestframework-simplejwt):  Securely hand
 * One User can have many Payments
 
 # API Security
-🔐 Security Measures & Their Importance
+Security Measures & Their Importance
 1. JWT authentications: Use JWT tokens for stateless authentication.
 * Why: Secures API access; token expiry limits exposure if stolen. Refresh tokens allow controlled renewal.
 
@@ -133,18 +148,37 @@ Guests can check availability, select dates, and book listings
 Users can pay for bookings using a payment gateway
 
 # CI/CD Pipeline
-🔁 What Is CI/CD?
+What Is CI/CD?
 > CI/CD is the process of automatically testing, integrating, and deploying code changes to ensure faster, safer, and more reliable software delivery.
 
 
-✅ Why CI/CD Is Important for Your Airbnb Clone Project
+Why CI/CD Is Important for Your Airbnb Clone Project
 1. faster development
 2. fewer bugs in production
 3. Team collaboration
 4. scalability
 
-🧰 CI/CD Tools
+CI/CD Tools
 1. GitHub Actions
 2. CircleCI
 3. GitLab CI/CD
 4. Jenkins
+
+
+project setup
+1. Clone the repository:
+git clone <https://github.com/ogennaisrael01/airbnb-clone-project>
+cd airbnb-clone-project
+
+2. Create and activate a virtual environment (optional but recommended):
+python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+
+3. Install dependencies:
+pip install -r requirements.txt
+
+4. Set up environment variables:
+Create a .env file in the project root and add necessary environment variables (e.g., SECRET_KEY, DATABASE_URL).
+
+5. Apply database migrations:
+python manage.py migrate
